@@ -9,6 +9,7 @@ require_relative "castle"
 # castle2.butler = "John"
 # castle2.butler("name")
 # p Castle.price_per_square_metre("London")
-castle1 = Castle.new("Matt's Castle", 300, 500, 5, "Paris", 30)
-castle2 = Castle.new("Sam's Castle", 300, 500, 5, "London", 36)
+# castle1 = Castle.new("Matt's Castle", 300, 500, 5, "Paris", 30)
+# castle2 = Castle.new("Sam's Castle", 300, 500, 5, "London", 36)
 
+House.new("Sam's House")
