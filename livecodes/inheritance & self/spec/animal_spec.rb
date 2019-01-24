@@ -1,17 +1,15 @@
 require_relative "../animal"
-
 describe Animal do
   describe "#initialize" do
-    it "creates an animal" do
-      animal = Animal.new("sam")
-      expect(animal).to be_an(Animal)
+    it "animals class instance is created" do
+      animal_test = Animal.new("lion")
+      expect(animal_test).to be_an(Animal)
     end
   end
-
-  describe "::phyla" do
-    it "returns the four phyla of the animal kingdom" do
-      phyla = Animal.phyla
-      expect(phyla.size).to eq(4)
+  describe "#name" do
+    it "name of the animal instance returned" do
+      name_test = Animal.new("penguin")
+      expect(name_test.name).to eq("penguin")
     end
   end
 end

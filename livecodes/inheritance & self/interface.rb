@@ -2,12 +2,12 @@ require_relative "lion"
 require_relative "meerkat"
 require_relative "warthog"
 
-animals = []
-animals << Lion.new("Simba")
-animals << Lion.new("Nala")
-animals << Meerkat.new("Timon")
-animals << Warthog.new("Pumbaa")
 
-animals.each do |animal|
-  puts animal.talk
+lion = Lion.new("star")
+meerkat = Meerkat.new("cherry")
+warthog = Warthog.new("bacon")
+animals_array = [lion, meerkat, warthog]
+
+animals_array.each do |animal|
+ puts animal.talk
 end
