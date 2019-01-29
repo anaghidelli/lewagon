@@ -8,7 +8,7 @@ class Room
 
   def initialize(attributes = {})
     @capacity = attributes[:capacity] || 0
-    @patients = attributes[:patients] || []
+    @patients = []
   end
 
   def full?
