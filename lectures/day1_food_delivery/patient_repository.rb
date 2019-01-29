@@ -21,6 +21,8 @@ class PatientRepository
     CSV.foreach(@csv_file, csv_options) do |row|
       row[:id]    = row[:id].to_i          # Convert column to Integer
       row[:cured] = row[:cured] == "true"  # Convert column to boolean
+      #room = @room_repository.find(row[:room_id].to_i)
+      # patient.room = room
       patient = Patient.new(row)
       @patients << patient
     end
