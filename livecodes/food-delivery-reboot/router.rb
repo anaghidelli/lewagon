@@ -1,9 +1,10 @@
 # TODO: implement the router of your app.
 class Router
-  def initialize(meals_controller, customers_controller, sessions_controller)
+  def initialize(meals_controller, customers_controller, sessions_controller, orders_controller)
     @meals_controller = meals_controller
     @customers_controller = customers_controller
     @sessions_controller = sessions_controller
+    @orders_controller = orders_controller
     @running = true
   end
 
@@ -28,6 +29,8 @@ class Router
     puts "2. Add a meal"
     puts "3. List all customers"
     puts "4. Add a customer"
+    puts "5. List undelivered orders"
+    puts "6. Add an order"
     puts "7. Sign out"
     puts "8. Quit"
     gets.chomp.to_i
@@ -39,6 +42,8 @@ class Router
     when 2 then @meals_controller.create
     when 3 then @customers_controller.list
     when 4 then @customers_controller.create
+    when 5 then @orders_controller.list_undelivered_orders
+    when 6 then @orders_controller.add
     when 7 then @employee = nil
     when 8 then @running = false
       @employee = nil

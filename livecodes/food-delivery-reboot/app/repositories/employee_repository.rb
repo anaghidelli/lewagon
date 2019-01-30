@@ -12,6 +12,10 @@ class EmployeeRepository
     @employees
   end
 
+  def find(id)
+    @employees.find {|employee| employee.id == id }
+  end
+
   def add(employee)
     employee.id = @next_id
     @employees << employee
