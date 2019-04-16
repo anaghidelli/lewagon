@@ -6,15 +6,15 @@ class MealsController
     @view = MealsView.new
   end
 
-  def list
-    meals = @meal_repository.all
-    @view.display_meals(meals)
+  def add
+    name = @view.ask_for("Name")
+    price = @view.ask_for("Price").to_i
+    meal = Meal.new({name: name, price: price})
+    @meal_repository.add(meal)
   end
 
-  def create
-    name = @view.ask("Name")
-    price = @view.ask("Price").to_i
-    meal = Meal.new(name: name, price: price)
-    @meal_repository.add(meal)
+  def list
+    meals = @meal_repository.all
+    @view.display(meals)
   end
 end

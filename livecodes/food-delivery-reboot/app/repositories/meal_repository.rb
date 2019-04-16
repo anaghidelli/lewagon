@@ -1,11 +1,17 @@
-require 'csv'
+require "csv"
 require_relative "../models/meal"
+require 'pry-byebug'
 class MealRepository
-  def initialize(csv_file)
-    @csv_file = csv_file
+  def initialize(csv_file_path)
+    @csv_file_path = csv_file_path
     @meals = []
     @next_id = 1
-    load_csv if File.exist?(@csv_file)
+    # binding.pry
+    load_csv if File.exist?(@csv_file_path)
+  end
+
+  def all
+    @meals
   end
 
   def add(meal)
@@ -15,17 +21,10 @@ class MealRepository
     save_csv
   end
 
-  def find(id)
-    @meals.find {|meal| meal.id == id }
-  end
-
-
-  def all
-    @meals
-  end
+  private
 
   def save_csv
-    CSV.open(@csv_file, 'wb') do |csv|
+    CSV.open(@csv_file_path, "w") do |csv|
       csv << ["id", "name", "price"]
       @meals.each do |meal|
         csv << [meal.id, meal.name, meal.price]
@@ -34,10 +33,12 @@ class MealRepository
   end
 
   def load_csv
-    csv_options = {headers: :first_row, header_converters: :symbol}
-    CSV.foreach(@csv_file, csv_options) do |row|
+    csv_options = { headers: :first_row, header_converters: :symbol }
+    CSV.foreach(@csv_file_path, csv_options) do |row|
       row[:id] = row[:id].to_i
       row[:price] = row[:price].to_i
+      # row = { id: 1, name: "burger", price: 10 }
+      # binding.pry
       @meals << Meal.new(row)
     end
     @next_id = @meals.empty? ? 1 : @meals.last.id + 1

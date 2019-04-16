@@ -6,4 +6,8 @@ class Meal
     @name = attributes[:name]
     @price = attributes[:price]
   end
+
+
 end
+
+

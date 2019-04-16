@@ -1,12 +1,12 @@
 class MealsView
-  def display_meals(meals)
-    meals.each do |meal|
-      puts "Id:#{meal.id}, Name: #{meal.name}, Price: #{meal.price}"
-    end
+  def ask_for(something)
+    puts "#{something}?"
+    gets.chomp
   end
 
-  def ask(something)
-    puts "Enter #{something}"
-    gets.chomp
+  def display(meals)
+    meals.each do |meal|
+      puts "id: #{meal.id}, name: #{meal.name}, price: £#{meal.price}"
+    end
   end
 end
