@@ -1,0 +1,8 @@
+build an app that will allow nurses to register new patients and assign them to room
+
+features:
+
+1) cure a patient
+2) ask a patient for the room that they are in and assign a room to a patient. e.g patient.room
+3) check if the room is full
+4) add a patient to a room
